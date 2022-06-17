@@ -7,8 +7,8 @@ export const getGifs = async ({ keyword, page = 0 }) => {
   const params = {
     api_key: API_KEY,
     q: keyword,
-    limit: 20,
-    offset: 20 * page,
+    limit: 10,
+    offset: 10 * page,
   };
 
   return await axios
