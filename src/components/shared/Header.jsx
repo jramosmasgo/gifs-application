@@ -1,10 +1,9 @@
 import { AppBar, Grid, Toolbar, Typography } from "@mui/material";
-import { height } from "@mui/system";
 import useSearchGifs from "../../hooks/useSearchGifs";
 import { InputSearch } from "../../styles/shared/inputs";
 
 function Header() {
-  const { value, onChange, onSubmit } = useSearchGifs("");
+  const { value, onChange, handleSubmit } = useSearchGifs("");
 
   return (
     <AppBar color="primary" position="sticky">
@@ -16,7 +15,7 @@ function Header() {
             </Typography>
           </Grid>
           <Grid item md={4}>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={handleSubmit}>
               <InputSearch
                 onChange={onChange}
                 value={value}
