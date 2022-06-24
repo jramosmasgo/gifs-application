@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import loadingSlice from "../slices/loading/loadingSlice";
+import loading from "../slices/loading/loadingSlice";
+import theme from "../slices/theme/themeSlice";
 
 export const store = configureStore({
   reducer: {
-    loading: loadingSlice,
+    loading,
+    theme,
   },
 });

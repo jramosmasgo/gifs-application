@@ -1,7 +1,7 @@
 import Masonry from "@mui/lab/Masonry";
-import Gifs from "./Gifs";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
+import Gifs from "./Gifs";
 
 function ListGifs({ gifs }) {
   const [columns, setColumns] = useState(4);

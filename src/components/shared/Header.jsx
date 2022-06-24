@@ -25,7 +25,7 @@ function Header() {
               />
             </form>
           </Grid>
-          <Grid></Grid>
+          <Grid>hola</Grid>
         </Grid>
       </Toolbar>
     </AppBar>

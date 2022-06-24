@@ -1,7 +1,8 @@
-import { Backdrop, CircularProgress } from "@mui/material";
+import { Backdrop, CircularProgress, Drawer } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { useSelector } from "react-redux";
+import Config from "../components/Config";
 import Header from "../components/shared/Header";
 
 function Layout({ children }) {
@@ -19,6 +20,9 @@ function Layout({ children }) {
       >
         <CircularProgress color="inherit" />
       </Backdrop>
+      <Drawer open={true}>
+        <Config />
+      </Drawer>
       <Header />
       {children}
     </Box>

@@ -11,22 +11,22 @@ import { disable, enable } from "../../redux/slices/loading/loadingSlice";
 function SearchResults() {
   const { keyword } = useParams();
   const dispatch = useDispatch();
-  const [gifs, loading, setPage] = useGifs({ keyword });
+  const [gifs, loading, setPage, loadingNextPage] = useGifs({ keyword });
 
   useEffect(() => {
-    if (loading) {
+    if (loading || loadingNextPage) {
       dispatch(enable());
     } else {
       dispatch(disable());
     }
-  }, [loading, dispatch]);
+  }, [loading, loadingNextPage, dispatch]);
 
   return (
     <div>
       <Box width="90vw" margin="0 auto">
         <Typography
           color="primary"
-          variant="h4"
+          variant="h5"
           style={{ margin: "40px 0" }}
           fontWeight={500}
         >
@@ -34,7 +34,7 @@ function SearchResults() {
         </Typography>
       </Box>
       <ListGifs gifs={gifs} />
-      <Box width="90vw" margin="20px auto">
+      <Box width="90vw" height="70px" margin="30px auto 0 auto">
         <Button
           fullWidth
           onClick={() => setPage((prev) => prev + 1)}

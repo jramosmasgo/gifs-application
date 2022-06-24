@@ -7,16 +7,17 @@ export const getGifs = async ({ keyword, page = 0 }) => {
   const params = {
     api_key: API_KEY,
     q: keyword,
-    limit: 10,
-    offset: 10 * page,
+    limit: 18,
+    offset: 18 * page,
   };
 
+  // eslint-disable-next-line no-return-await
   return await axios
     .get(API_SEARCH, {
-      params: params,
+      params,
     })
     .then((res) => {
-      const data = res.data.data;
+      const { data } = res.data;
       const gifs = data.map((image) => {
         const { images, title, id } = image;
         const { url } = images.downsized_medium;

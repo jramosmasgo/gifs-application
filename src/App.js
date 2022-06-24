@@ -1,17 +1,16 @@
 import "./App.css";
 import { ThemeProvider } from "@mui/material/styles";
-import { darkTheme } from "./styles/themes/dark";
+import { useSelector } from "react-redux";
 import AppRouter from "./routers/AppRouter";
-import { Provider } from "react-redux";
-import { store } from "./redux/store/store";
+import { generatetheme } from "./styles/themes/dark";
 
 function App() {
+  const themeValues = useSelector((state) => state.theme.value);
+
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={darkTheme}>
-        <AppRouter />
-      </ThemeProvider>
-    </Provider>
+    <ThemeProvider theme={generatetheme(themeValues)}>
+      <AppRouter />
+    </ThemeProvider>
   );
 }
 
