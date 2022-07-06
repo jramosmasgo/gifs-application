@@ -8,7 +8,7 @@ const darkTheme = {
 
 const lightTheme = {
   background: "#E7E7E7",
-  paper: "#393E46",
+  paper: "#EBEBEB",
   white: "#EEEEE",
 };
 
@@ -34,9 +34,11 @@ const colorThemes = [
   },
 ];
 
-export function generatetheme(
-  { themeName, colorName } = { colorName: "green" }
-) {
+export function generatetheme({ themeName, colorName } = {}) {
+  if (localStorage.getItem("themePreferences")) {
+    localStorage.removeItem("themePreferences");
+  }
+
   const themeSelect = listThemes.find((x) => x.name === themeName);
   const colorSelect = colorThemes.find((x) => x.name === colorName);
 

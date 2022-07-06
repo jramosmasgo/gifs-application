@@ -1,8 +1,9 @@
-import { AppBar, Grid, Toolbar, Typography } from "@mui/material";
+import { AppBar, Grid, Toolbar, Typography, IconButton } from "@mui/material";
+import SettingsIcon from "@mui/icons-material/Settings";
 import useSearchGifs from "../../hooks/useSearchGifs";
 import { InputSearch } from "../../styles/shared/inputs";
 
-function Header() {
+function Header({ actionSettings }) {
   const { value, onChange, handleSubmit } = useSearchGifs("");
 
   return (
@@ -25,7 +26,11 @@ function Header() {
               />
             </form>
           </Grid>
-          <Grid>hola</Grid>
+          <Grid item md={4} display="flex" justifyContent="flex-end">
+            <IconButton onClick={() => actionSettings()}>
+              <SettingsIcon />
+            </IconButton>
+          </Grid>
         </Grid>
       </Toolbar>
     </AppBar>

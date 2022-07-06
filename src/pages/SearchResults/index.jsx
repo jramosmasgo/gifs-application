@@ -1,6 +1,5 @@
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";

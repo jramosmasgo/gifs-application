@@ -1,12 +1,17 @@
 import { Backdrop, CircularProgress, Drawer } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import Config from "../components/Config";
 import Header from "../components/shared/Header";
 
 function Layout({ children }) {
   const { value } = useSelector((state) => state.loading);
+  const [open, setOpen] = useState(false);
+
+  const hadleOpenCloseDrawer = () => {
+    setOpen(!open);
+  };
 
   return (
     <Box
@@ -20,10 +25,10 @@ function Layout({ children }) {
       >
         <CircularProgress color="inherit" />
       </Backdrop>
-      <Drawer open={true}>
+      <Drawer onClose={hadleOpenCloseDrawer} open={open}>
         <Config />
       </Drawer>
-      <Header />
+      <Header actionSettings={hadleOpenCloseDrawer} />
       {children}
     </Box>
   );
