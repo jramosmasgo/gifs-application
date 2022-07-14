@@ -1,7 +1,7 @@
 import Masonry from "@mui/lab/Masonry";
-import Gifs from "./Gifs";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
+import Gifs from "./Gifs";
 
 function ListGifs({ gifs }) {
   const [columns, setColumns] = useState(4);
@@ -19,11 +19,13 @@ function ListGifs({ gifs }) {
   }, [desktop, mobile, tablet, fullScreen]);
 
   return (
-    <Masonry columns={columns} spacing={1}>
-      {gifs.map((item) => (
-        <Gifs key={item.id} gif={item} />
-      ))}
-    </Masonry>
+    <Box width="90vw" margin="0 auto">
+      <Masonry columns={columns} defaultColumns={columns} spacing={1}>
+        {gifs.map((item) => (
+          <Gifs key={item.id} gif={item} />
+        ))}
+      </Masonry>
+    </Box>
   );
 }
 
