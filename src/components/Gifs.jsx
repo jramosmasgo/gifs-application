@@ -1,6 +1,9 @@
+import { Typography } from "@mui/material";
+import { ContentGif, ContentGifTitle } from "../styles/Gifs/gifStyle";
+
 function Gifs({ gif }) {
   return (
-    <div>
+    <ContentGif>
       <img
         src={`${gif.url}?w=162&auto=format`}
         alt={gif.title}
@@ -11,7 +14,10 @@ function Gifs({ gif }) {
           width: "100%",
         }}
       />
-    </div>
+      <ContentGifTitle>
+        <Typography>{gif.title}</Typography>
+      </ContentGifTitle>
+    </ContentGif>
   );
 }
 
